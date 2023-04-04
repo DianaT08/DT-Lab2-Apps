@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+  <title>Users manager</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="libs/vue/vue.min.js"></script>
+  <script type="text/javascript" src="libs/axios/axios.js"></script>
+  <script type="text/javascript" src="users.js"></script>
+</head>
+
+<body>
+  <div id="app">
+
+    <ul class="user-list">
+      <li v-for="(user, index) in users">
+        <div class="user-row">
+          <div class="user-name"><b>{{ user.name }}</b></div>
+          <div class="user-city"><i>{{ user.city }}</i></div>
+          <button v-on:click="remove(index)">Delete</button>
+          <div><input type="text" placeholder="Name" :id="'newName' + index" ></div>
+          <div><input type="text" placeholder="City" :id="'newCity' + index" ></div>
+          <button v-on:click="modify(index)">Update</button>
+        </div>
+      </li>
+    </ul>  
+     <div><input type="text" placeholder="Name" v-model="name"></div>
+     <div><input type="text" placeholder="City" v-model="city"></div>
+    <button v-on:click="add(name,city)">Add</button>
+  
+</div>
+  <script src="app.js"></script>
+</body>
+
+</html>
